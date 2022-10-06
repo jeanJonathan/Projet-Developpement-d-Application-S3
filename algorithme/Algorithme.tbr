@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>6/10/2022 09:29</date_creation>
+  <Elements>
+    <Action>
+      <Position>742;21</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>∅</PreAssertion>
+      <PostAssertion>∅</PostAssertion>
+      <Titre>Algorithme Création Plateau</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>221;204</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>donnesCarte</PostAssertion>
+          <Titre>Initialisation</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>7;340</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>posUtil</PostAssertion>
+              <Titre>Saisie Position utilisateur</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>142;444</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>posUtil</PreAssertion>
+              <PostAssertion>donnesCarte</PostAssertion>
+              <Titre>Chargement des données nécessaire
+par rapport a posUtil</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1797;171</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>Rue[nbrRue]
+GareJeu[4]</PreAssertion>
+          <PostAssertion>plateau</PostAssertion>
+          <Titre>Creation du Plateau</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>1574;301</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>GareJeu[4]
+Rue[nbrRue]</PreAssertion>
+              <PostAssertion>Case[NB_CASE]</PostAssertion>
+              <Titre>Creation des cases</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>1826;413</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>Case[NB_CASE]</PreAssertion>
+              <PostAssertion>plateau</PostAssertion>
+              <Titre>ajout des cases au plateau</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>2086;316</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>plateau</PreAssertion>
+              <PostAssertion>plateau</PostAssertion>
+              <Titre>definition de la version graphique
+du plateau</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>2312;157</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>plateau</PreAssertion>
+          <PostAssertion>?</PostAssertion>
+          <Titre>Affichage du plateau</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>968;156</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>Preparation du plateau</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>580;286</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>donnesCarte</PreAssertion>
+              <PostAssertion>Rue[NBR_RUE]</PostAssertion>
+              <Titre>Recherche des Rues</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>523;566</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>Parcours de Rue</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>802;575</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>Preparation du chemin</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>923;681</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>Rue[NBR_RUE]</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>Conception du chemin</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Iteration>
+                  <Position>1108.5;842.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>?</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants/>
+                </Iteration>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>1295;295</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>Recherche des gares</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>1158;475</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>listegare[TailleGareDep]</PostAssertion>
+                  <Titre>recherche des gares dans dep</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1583;588</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>GareJeu[4]</PostAssertion>
+                  <Titre>choix de 4 gares au hasard</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+      </Enfants>
+    </Action>
+    <Action>
+      <Position>656;926</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>∅</PreAssertion>
+      <PostAssertion>∅</PostAssertion>
+      <Titre>?</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
