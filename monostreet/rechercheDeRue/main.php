@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * @file main.php 
+ * @brief La fonction principale qui permert de retrouver les 24 rues
+ * @autor Guillaume Arricastre
+ * version 
+ * date 12/01/2023
+ * 
+ * */
 include("Rue.php");
 
 /**$maCoord = new Coordonnees(2,3);

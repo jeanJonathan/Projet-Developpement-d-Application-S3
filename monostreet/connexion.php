@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file Connexion.php 
+ * @brief  page implementant la connexion des utilisateurs
+ * @autor Guillaume Arricastre
+ * version 
+ * date 12/01/2023
+ * 
+ * */
 session_start();
 if(isset($_POST['envoie'])){
     if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
