@@ -38,7 +38,7 @@ session_start();
 					<h2 class="content-heading">Desirez vous voir ce déroulement ?</h2>
 					<p><img decoding="async" class="content-image" alt="" width="810" height="456" srcset="../docs/monostreet.png" sizes="(max-width: 810px) 100vw, 810px"></p>
 					<a href='createGame.php?'><button id = "jouer">Creer une Partie !</button></a>
-					<a href='monostreet.php?'><button id = "jouer">Rejoindre une Partie !</button></a>
+					<a href='joinGame.php?'><button id = "jouer">Rejoindre une Partie !</button></a>
 					<hr>
 					<p><strong>Comme tout autre jeu de société</strong>, Monostreet n&#8217;a jamais été aussi simple ! Si jouer au monopoly en ligne avec d&#8217;autres internautes gratuitement vous intéresse, vous aurez bientot la possibilite de jouer la version complete de notre jeu. Vous pouvez <a href="#" class="content-link">consulter les règles de notre jeu </a> pour jouer dans les règles de l’art ;).</p>
 				</div>
