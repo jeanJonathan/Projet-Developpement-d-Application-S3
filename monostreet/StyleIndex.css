@@ -52,3 +52,25 @@
   color: blue;
   text-decoration: underline;
 }
+/* Footer styles */
+.footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-section {
+  margin-right: 20px;
+}
+.footer-section-inner {
+  text-align: left;
+}
+.footer-section-item {
+  margin-bottom: 20px;
+}
+.footer-section-heading {
+  margin-bottom: 10px;
+}
