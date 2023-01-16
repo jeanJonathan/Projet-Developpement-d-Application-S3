@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file MonoStreet.php 
+ * @brief La page d'acceuil du site MonoStreet
+ * @autor Guillaume Arricastre, KOFFI jean-jonathan
+ * version 
+ * date 12/01/2023
+ * 
+ * */
 session_start();
 ?>
 

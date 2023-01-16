@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * @file Coordornees.php 
+ * @brief Classe Cordornees implementant les differentes coordornees de chaque rue 
+ * @autor Guillaume Arricastre
+ * version 
+ * date 12/01/2023
+ * 
+ * */
 class Coordonnees
 {
     private $_latitude;
