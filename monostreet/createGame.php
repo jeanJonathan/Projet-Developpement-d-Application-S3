@@ -12,5 +12,5 @@ if (!isset($_SESSION['pseudo'])) {
     </br>
     Nombre de joueur<input type="number" name="nbJoueur" class="input" min="2" max="4">
     </br>
-    <input type="submit" name="envoie">
+    <input type="submit" name="envoie" value="Créer la partie">
 </form>
