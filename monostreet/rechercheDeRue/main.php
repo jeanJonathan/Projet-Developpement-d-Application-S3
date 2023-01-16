@@ -2,13 +2,13 @@
 
 include("Rue.php");
 
-$maCoord = new Coordonnees(2,3);
+/**$maCoord = new Coordonnees(2,3);
 
 echo $maCoord->getLatitude()."<br/>";
 
 $maRue = new Rue("Pau",$maCoord);
 
-$maRue->afficherRue();
+$maRue->afficherRue();**/
 
 
 /*function read($csv){
@@ -421,9 +421,9 @@ function trouverParcours($rue, $afficher){
 
 }
 
-$rue = new Rue ("Rue des chemins de Compostelles", new Coordonnees (43.1783052, -0.6171157));
-$afficher = true;
-$bien = trouverParcours($rue, $afficher);
+//$rue = new Rue ("Rue des chemins de Compostelles", new Coordonnees (43.1783052, -0.6171157));
+//$afficher = true;
+//$bien = trouverParcours($rue, $afficher);
 
 /**echo '<pre>';
 print_r($bien);
