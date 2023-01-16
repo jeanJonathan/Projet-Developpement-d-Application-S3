@@ -1,0 +1,2 @@
+Monostreet est une application web responsive sous la supervision du Groupe 10 composé de Maxime Segot, Noah Gomes, Guillaume Arricastres, Jean Jonathan Koffi.
+Tout personne souhaitant utiliser le code doit en faire explicitement la demande à un des membres du groupe
