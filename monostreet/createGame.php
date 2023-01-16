@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['pseudo'])) {
-    header('Location: connexion.php');
+    header("Location: connexion.php");
 }
 ?>
 
@@ -15,13 +15,15 @@ if (!isset($_SESSION['pseudo'])) {
 
 <?php
 
-if(!isset($_POST['laRue'])){
+if(isset($_POST['laRue'])){
     $_SESSION['rueDeDepart'] = $_POST['laRue'];
-    if (!isset($_POST['nbJoueur'])) {
-        header('Location : jeu.php');
+    if (isset($_POST['nbJoueur'])) {
+        echo "<meta http-equiv='refresh' content='0; URL=http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE/Projet-Developpement-d-Application-S3/monostreet/jeu.php'>";
     }
 }
 
+echo isset($_SESSION);
 
-/*nan mais allo quoi*/
+
+
 ?>
