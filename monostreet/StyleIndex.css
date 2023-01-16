@@ -74,3 +74,29 @@
 .footer-section-heading {
   margin-bottom: 10px;
 }
+
+/**Body**/
+body {
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/**Bouton**/
+button {
+  width: 10em;
+  height: 40px;
+  margin : 10px;
+  background-color: rgb(122, 122, 122);
+  font-weight: bold;
+  border: none;
+  border-radius : 10px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out 0s;
+
+}
+
+/**Bouton selectionné**/
+button:hover {
+  background-color: red;
+}
