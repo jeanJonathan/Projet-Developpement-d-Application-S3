@@ -1,7 +1,21 @@
 <?php
-
+/**
+ * @file MonoStreet.php 
+ * @brief La page d'acceuil du site MonoStreet
+ * @autor Guillaume Arricastre
+ * version 
+ * date 
+ * 
+ * */
 include("Coordonnees.php");
 
+/**
+ * @file MonoStreet.php 
+ * @brief La classe Rue implemente les coordornees de chaque rue
+ * @autor Guillaume Arricastre
+ * version 
+ * 
+ * */
 class Rue
 {
     private $_nomRue;
