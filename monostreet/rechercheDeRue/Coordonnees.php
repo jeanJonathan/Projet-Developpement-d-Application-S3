@@ -36,7 +36,7 @@ class Coordonnees
     }
 /**
  * 
- * @brief retourne la latitude d'une rue 
+ * @brief Renvoie la latitude de la coordonnee
  * version 
  * 
  * */
@@ -46,7 +46,7 @@ class Coordonnees
     }
 /**
  * 
- * @brief retourne la longitude d'une rue  
+ * @brief Renvoie la longitude de la coordonnee  
  * version 
  * 
  * */
@@ -54,19 +54,15 @@ class Coordonnees
     {
         return $this->_longitude;
     }
+/** Setter */
 /**
  * 
  * @brief Mettant a jour la latitude d'une rue par une latitude entree en parametre
  * version 
  * 
  * */
-    public function setLatitude($lat = "")
+    public function setLatitude($lat)
     {
-        if ($lat == "")
-        {
-            return $this->latitude;
-        }
-
         $this->_latitude = $lat;
     }
 /**
@@ -75,18 +71,13 @@ class Coordonnees
  * version 
  * 
  * */
-    public function setLongitude($long = "")
+    public function setLongitude($long)
     {
-        if ($long == "")
-        {
-            return $this->_longitude;
-        }    
-
         $this->_longitude = $long;
     }
 /**
  * 
- * @brief fonction affichant les coordornees d'une rue 
+ * @brief Affiche la coordonnee de la forme : Latitude;Longitude 
  * version 
  * 
  * */
@@ -96,7 +87,7 @@ class Coordonnees
     }
 /**
  * 
- * @brief fonction definissant la distance a partir d'une rue implementant sa latitude et sa longitude 
+ * @brief Renvoie la distance entre deux coordonnees
  * version 
  * 
  * */
@@ -106,7 +97,7 @@ class Coordonnees
     }
 /**
  * 
- * @brief fontion definisant le point moyen a partir d'un points donnees
+ * @brief Renvoie une coordonnee contenant les coordonnees du point se situant entre le point "this" et $point
  * version 
  * 
  * */

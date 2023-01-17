@@ -43,9 +43,10 @@ class Rue
         $this->_nomRue = $nom;
         $this->_coordonnees = $coord;
     }
+/** Getter */
 /**
  * 
- * @brief fonction retournant le nom d'une rue 
+ * @brief Renvoie le nom de la Rue 
  * version 
  * 
  * */
@@ -55,7 +56,7 @@ class Rue
     }
 /**
  * 
- * @brief fonction retournant la coordornee d'une rue 
+ * @brief Renvoie les coordonnees de la Rue
  * version 
  * 
  * */
@@ -63,19 +64,15 @@ class Rue
     {
         return $this->_coordonnees;
     }
+/** Setter */
 /**
  * 
  * @brief fonction metant a jour le nom d'une rue a partir d'un nom entree en parametre
  * version 
  * 
  * */
-    public function setNomRue($nom = "")
+    public function setNomRue($nom)
     {
-        if ($nom == "")
-        {
-            return $this->_nomRue;
-        }
-
         $this->_nomRue = $nom;
     }
 /**
@@ -84,18 +81,13 @@ class Rue
  * version 
  * 
  * */
-    public function setCoordonnees($coord = "")
+    public function setCoordonnees($coord)
     {
-        if ($coord == "")
-        {
-            return $this->_coordonnees;
-        }    
-
         $this->_coordonnees = $coord;
     }
 /**
  * 
- * @brief fonction affichant une rue par sa coordornee latitude et longitude 
+ * @brief Affiche la Rue de la forme : Nom(Latitude;Longitude)
  * version 
  * 
  * */

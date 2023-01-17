@@ -9,25 +9,8 @@
  * */
 include("Rue.php");
 
-//$maCoord = new Coordonnees(2,3);
-
-//echo $maCoord->getLatitude()."<br/>";
-
-//$maRue = new Rue("Pau",$maCoord);
-
-//$maRue->afficherRue();
-
-
-/*function read($csv){
-    $file = fopen($csv, 'r');
-    while (!feof($file) ) {
-        $line[] = fgetcsv($file, 1024);
-    }
-    fclose($file);
-    return $line;
-}*/
 // Définir le chemin d'accès au fichier CSV
-$csv = 'Oloron80.csv';
+//$csv = 'Oloron80.csv';
 
 
 
@@ -39,14 +22,18 @@ $csv = 'Oloron80.csv';
  * 
  * */
 
+/** Fonction qui renvoie une liste de liste contenant les caractéristique de cette liste */
 function listeDeRues1($nomcsv){
 
+    // Ouverture de fichier csv et ajout des lignes dans la liste $listeDesRuesBrut
+    // $listeDesRuesBrut de la forme : $listeDesRuesBrut[0] = [debutLigne1,finLigne1], $listeDesRuesBrut[1] = [debutLigne2,finLigne2] ...
     $lesRues = fopen($nomcsv, 'r');
     while (!feof($lesRues) ) {
         $listeDesRuesBrut[] = fgetcsv($lesRues, 1024);
     }
     fclose($lesRues);
-   
+
+    // Creation de la liste $listeBienIndexee de la forme : $listeBienIndexee[0] = Ligne1, $listeDesRuesBrut[1] = Ligne2 ...
     $listeBienIndexee = [];
     for ($i=0; $i < count($listeDesRuesBrut); $i++) {
         if ($listeDesRuesBrut[$i]!="" && count($listeDesRuesBrut[$i])==2) {
@@ -54,6 +41,11 @@ function listeDeRues1($nomcsv){
         }
     }
 
+    // Creation de la liste $vraiListe de la forme : $vraiListe[0] = ligne1                         $vraiListe[1] = ligne2                       ...
+    //                                                   $vraiListe[0][0] = ligne1/Colonne1             $vraiListe[1][0] = ligne2/Colonne1
+    //                                                   $vraiListe[0][1] = ligne1/Colonne2             $vraiListe[1][1] = ligne2/Colonne2
+    //                                                   $vraiListe[0][...] = ligne1/Colonne...         $vraiListe[1][...] = ligne2/Colonne...
+    //                                                   $vraiListe[0][12] = ligne1/Colonne13           $vraiListe[1][12] = ligne2/Colonne13
     $vraiListe = [];
     $mot = "";
     for ($j=0; $j < count($listeBienIndexee); $j++) { 
@@ -69,6 +61,12 @@ function listeDeRues1($nomcsv){
         }
     }
 
+    // Creation de la liste $listeFinale de la forme : $vraiListe[0] = ligne1                          $vraiListe[1] = ligne2                       ...
+    //                                                   $vraiListe[0][0] = ligne1/TypeDeVoie              $vraiListe[1][0] = ligne2/TypeDeVoie
+    //                                                   $vraiListe[0][1] = ligne1/NomDeLaVoie             $vraiListe[1][1] = ligne2/NomDeLaVoie
+    //                                                   $vraiListe[0][2] = ligne1/Ville                   $vraiListe[1][2] = ligne2/Ville
+    //                                                   $vraiListe[0][3] = ligne1/Latitude                $vraiListe[1][3] = ligne2/Latitude
+    //                                                   $vraiListe[0][4] = ligne1/Longitude               $vraiListe[1][4] = ligne2/Longitude
     $listeFinale = [];
     for ($j=0; $j < count($vrailiste); $j++) { 
         $listeFinale[] = [$vraiListe[$j][9],$vraiListe[$j][7],$vraiListe[$j][3],$vraiListe[$j][10],$vraiListe[$j][11]];
@@ -77,25 +75,24 @@ function listeDeRues1($nomcsv){
     return $listeFinale;
 }
 
+/** Fonction qui renvoie une liste de Rue */
 function listeDeRues2($nomcsv){
     $listeFinale = listeDeRues1($nomcsv);
+
+    // Creation de la liste $listeFinalePointToutes de la forme : $listeFinalePointToutes[0] = Rue1(typedeVoie + nomDeLaVoie, Coordonnees(Latitude, Longitude))
+    //                                                            $listeFinalePointToutes[1] = Rue2(typedeVoie + nomDeLaVoie, Coordonnees(Latitude, Longitude)) ...
     $listeFinalePointToutes = [];
     for ($i=0; $i < count($listeFinale); $i++) { 
         $listeFinalePointToutes[] = new Rue($listeFinale[$i][0].$listeFinale[$i][1],new Coordonnees(floatval($listeFinale[$i][3]),floatval($listeFinale[$i][4])));
     }
-
     return $listeFinalePointToutes;
 }
 
 
-/**echo '<pre>';
-print_r($liste);
-echo '</pre>';*/
-
 
 /**
  * 
- * @brief La fonction ruesPlusProches50 pour receptionner l'ensemble des rues voisine dans un rayon de 50km
+ * @brief Fonction qui renvoie un tableau contenant les 50 rues les plus proches de $laRue, qui sont dans la liste $listeDeRues, celon ses coordonnees
  * version 
  * 
  * */
@@ -103,27 +100,35 @@ function ruesPlusProches50($listeDeRues, $laRue){
     $diametre = 0.1;
     $listeDes50Rues = [];
 
+    // Tant qu'on a pas trouvé plus de 50 rues
     while (true) {
+        // Pour toutes les rues de la liste
         foreach ($listeDeRues as $rue) {
+            // si la rue fait parti du diametre autour de $laRue
             if ($laRue->getCoordonnees()->distance($rue->getCoordonnees())<$diametre){
                 $listeDes50Rues[] = $rue;
             }
         }
-        //echo count($listeDes50Rues)."<br/>";
+        // Si il y a moins de 50 rues
         if (count($listeDes50Rues)<50) {
             $diametre += 1;
             $listeDes50Rues = [];
         }
+        // si il y a plus de 50 rues
         else {
+            // tant qu'il n'y a pas axactement 50 rues dans la liste
             while (count($listeDes50Rues) != 50) {
                 $max = $laRue->getCoordonnees()->distance($listeDes50Rues[0]->getCoordonnees());
                 $rueASupprimer = $listeDes50Rues[0];
+                // pour toutes les rues de la liste
                 foreach ($listeDes50Rues as $rue) {
+                    // si la rue est plus eloignée que la rue $max
                     if ($laRue->getCoordonnees()->distance($rue->getCoordonnees())>$max) {
                         $max = $laRue->getCoordonnees()->distance($rue->getCoordonnees());
                         $rueASupprimer = $rue;
                     }
                 }
+                // suppression de la rue la plus eloignée
                 unset($listeDes50Rues[array_search($rue, $listeDes50Rues)]);
 
                 sort($listeDes50Rues); // Trie un tableau
@@ -132,14 +137,13 @@ function ruesPlusProches50($listeDeRues, $laRue){
             break;
         }
     }
-    //echo count($listeDes50Rues);
     return $listeDes50Rues;
 }
 
 /** RECHERCHE DU PARCOURS */
 /**
  * 
- * @brief La fonction trouverParcous pour faire le parcours des rues et afficher le cycle correspondant
+ * @brief Fonction qui cherche les coordonnees de $rue dans la liste $listeDesRuesPourCoordonnees et qui les renvoie sous forme de Rue
  * version 
  * 
  * */
@@ -153,11 +157,11 @@ function rechercheCoordonnees($rue,$listeDesRuesPourCoordonnees){
     }
 }
 
-//rechercheCoordonnees("ADOLPHO BIOY CASARES      ",listeDeRues1("Oloron80.csv"));
 
+/** --------------------- RECHERCHE DU PARCOURS --------------------- */
 
-/** RECHERCHE DU PARCOURS */
-function trouverParcours($laRue, $afficher){
+/** Fonction qui affiche la liste des 22 rues les plus proches de $laRue afin que cela crée un parcours cyclique et fermé */
+function trouverParcours($laRue){
     $listeDesRuesPourCoordonnees = listeDeRues1("rechercheDeRue/Oloron80.csv");
 
     $listeFinalePointToutes = listeDeRues2("rechercheDeRue/Oloron80.csv");
@@ -173,27 +177,13 @@ function trouverParcours($laRue, $afficher){
 
     $listeFinalePoint = ruesPlusProches50($listeFinalePointToutes, $rue);
 
-    $listeDesLat = [];
-    foreach ($listeFinalePoint as $Rue) {
-        $listeDesLat[] = $Rue->getCoordonnees()->getLatitude();
-    }
-
-    $latMax = max($listeDesLat);
-    $latMin = min($listeDesLat);
-
-    $listeDesLong = [];
-    foreach ($listeFinalePoint as $Rue) {
-        $listeDesLong[] = $Rue->getCoordonnees()->getLongitude();
-    }
-
-    $longMax = max($listeDesLong);
-    $longMin = min($listeDesLong);
-
+    // Creation de la liste finale contenant les 22 rues
     $listeFin = [];
     for ($i=0; $i < 22; $i++) { 
         $listeFin[] = null;
     }
 
+    // creation de $oppose qui est le point le plus éloigné de $laRue celon la Latitude
     $oppose = $listeFinalePoint[0];
     $placeOpp = 0;
     for ($i=0; $i < count($listeFinalePoint); $i++) { 
@@ -216,6 +206,7 @@ function trouverParcours($laRue, $afficher){
     $ouest = $listeFinalePoint[$compteur];
     $placeOuest = $compteur;
 
+    // Recherche du point le plus a l'est et du point le plus a l'ouest
     for ($i=0; $i < count($listeFinalePoint); $i++) { 
         if ($listeFinalePoint[$i] != null) {
             if ($est->getCoordonnees()->getLongitude() < $listeFinalePoint[$i]->getCoordonnees()->getLongitude()) {
@@ -254,7 +245,7 @@ function trouverParcours($laRue, $afficher){
     while (true) {
         $compteur += 1;
 
-        //definir le plus proche depFin
+        // definir le plus proche depFin
         // definir rue temp
         for ($i=0; $i < count($listeFinalePoint); $i++) { 
             if ($listeFinalePoint[$i] != null) {
@@ -354,8 +345,6 @@ function trouverParcours($laRue, $afficher){
 
         $listeFin[6 + $compteur] = $estFin;
     }
-
-    //PAUSE
 
     //determiner les coordonnees moyennes
     $depFinEst = $depFin->getCoordonnees()->pointMoyen($est->getCoordonnees());
@@ -462,15 +451,4 @@ function trouverParcours($laRue, $afficher){
 
 
 }
-
-//$rue = "ADOLPHO BIOY CASARES      ";
-//$afficher = true;
-//$bien = trouverParcours($rue, $afficher);
-
-/**echo '<pre>';
-print_r($bien);
-echo '</pre>';**/
-
-
-
 ?>
