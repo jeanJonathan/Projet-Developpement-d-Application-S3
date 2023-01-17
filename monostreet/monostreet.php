@@ -31,15 +31,11 @@ session_start();
             <?php
                 if(!isset($_SESSION['pseudo'])){
                     echo "<a href='connexion.php?'><button>Se connecter</button></a>";
-					echo "<div class='header-inner'>
-							<div class='header-logo'>
-								<span class='header-logo-text'><a href='#' rel='home'>MONOSTREET</a></span>
-							</div>
-						</div>";
+					
                 }
                 else{
                     
-						echo "<a href='compte.php'><button>Mon Compte</button></a>";
+						echo "<a href='renvoie.php'><button>Mon Compte</button></a>";
                 }
             ?>
 			
