@@ -2,13 +2,13 @@
 
 include("Rue.php");
 
-$maCoord = new Coordonnees(2,3);
+//$maCoord = new Coordonnees(2,3);
 
-echo $maCoord->getLatitude()."<br/>";
+//echo $maCoord->getLatitude()."<br/>";
 
-$maRue = new Rue("Pau",$maCoord);
+//$maRue = new Rue("Pau",$maCoord);
 
-$maRue->afficherRue();
+//$maRue->afficherRue();
 
 
 /*function read($csv){
@@ -26,7 +26,7 @@ $csv = 'Oloron80.csv';
 
 //---------------CREATION DE LA LISTE-----------------
 
-function listeDeRues($nomcsv){
+function listeDeRues1($nomcsv){
 
     $lesRues = fopen($nomcsv, 'r');
     while (!feof($lesRues) ) {
@@ -61,14 +61,17 @@ function listeDeRues($nomcsv){
         $listeFinale[] = [$vraiListe[$j][9],$vraiListe[$j][7],$vraiListe[$j][3],$vraiListe[$j][10],$vraiListe[$j][11]];
     }
 
+    return $listeFinale;
+}
+
+function listeDeRues2($nomcsv){
+    $listeFinale = listeDeRues1($nomcsv);
     $listeFinalePointToutes = [];
     for ($i=0; $i < count($listeFinale); $i++) { 
         $listeFinalePointToutes[] = new Rue($listeFinale[$i][0].$listeFinale[$i][1],new Coordonnees(floatval($listeFinale[$i][3]),floatval($listeFinale[$i][4])));
     }
 
     return $listeFinalePointToutes;
-
-    
 }
 
 
@@ -88,7 +91,7 @@ function ruesPlusProches50($listeDeRues, $laRue){
                 $listeDes50Rues[] = $rue;
             }
         }
-        echo count($listeDes50Rues);
+        //echo count($listeDes50Rues)."<br/>";
         if (count($listeDes50Rues)<50) {
             $diametre += 1;
             $listeDes50Rues = [];
@@ -111,16 +114,29 @@ function ruesPlusProches50($listeDeRues, $laRue){
             break;
         }
     }
-
+    //echo count($listeDes50Rues);
     return $listeDes50Rues;
 }
 
-/** RECHERCHE DU PARCOURS */
-function trouverParcours($rue, $afficher){
-    
-    
-    $listeFinalePointToutes = listeDeRues("Oloron80.csv");
+function rechercheCoordonnees($rue,$listeDesRuesPourCoordonnees){
+    foreach ($listeDesRuesPourCoordonnees as $uneRue) {
+        if ($rue == $uneRue[1]) {
+            $rueARenvoyer = new Rue ($rue, new Coordonnees (floatval($uneRue[3]), floatval($uneRue[4])));
+            return $rueARenvoyer;
+        }
+    }
+}
 
+//rechercheCoordonnees("ADOLPHO BIOY CASARES      ",listeDeRues1("Oloron80.csv"));
+
+
+/** RECHERCHE DU PARCOURS */
+function trouverParcours($laRue, $afficher){
+    $listeDesRuesPourCoordonnees = listeDeRues1("rechercheDeRue/Oloron80.csv");
+
+    $listeFinalePointToutes = listeDeRues2("rechercheDeRue/Oloron80.csv");
+    // recherche des coordonnees de la rue donnée
+    $rue = rechercheCoordonnees($laRue,$listeDesRuesPourCoordonnees);
     foreach ($listeFinalePointToutes as $rueElement) {
         if ($rueElement->getCoordonnees() == $rue->getCoordonnees()) {
             unset($listeFinalePointToutes[array_search($rueElement, $listeFinalePointToutes)]);
@@ -421,9 +437,9 @@ function trouverParcours($rue, $afficher){
 
 }
 
-$rue = new Rue ("Rue des chemins de Compostelles", new Coordonnees (43.1783052, -0.6171157));
-$afficher = true;
-$bien = trouverParcours($rue, $afficher);
+//$rue = "ADOLPHO BIOY CASARES      ";
+//$afficher = true;
+//$bien = trouverParcours($rue, $afficher);
 
 /**echo '<pre>';
 print_r($bien);
