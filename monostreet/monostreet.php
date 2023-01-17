@@ -26,17 +26,23 @@ session_start();
             <?php
                 if(!isset($_SESSION['pseudo'])){
                     echo "<a href='connexion.php?'><button>Se connecter</button></a>";
+					echo "<div class='header-inner'>
+							<div class='header-logo'>
+								<span class='header-logo-text'><a href='#' rel='home'>MONOSTREET</a></span>
+							</div>
+						</div>";
                 }
                 else{
                     echo "<a href='deconnexion.php'><button>Se deconnecter</button></a>";
-                    echo "<a href='compte.php'><button>Mon Compte</button></a>";
+					echo "<div class='header-inner'>
+							<div class='header-logo'>
+								<span class='header-logo-text'><a href='#' rel='home'>MONOSTREET</a></span>
+							</div>
+						</div>";
+						echo "<a href='compte.php'><button>Mon Compte</button></a>";
                 }
             ?>
-			<div class="header-inner">
-				<div class="header-logo">
-					<span class="header-logo-text"><a href="#" rel="home">MONOSTREET</a></span>
-				</div>
-			</div>
+			
 		</header>
 		<main class="main">
 			<article class="content">
@@ -44,7 +50,7 @@ session_start();
 					<p><strong>MONOSTREET</strong> est un jeu de société où les joueurs doivent acquérir la concurrence des propriétés des rues associées aux adresses réelles jusqu'à obtenir le monopole. <strong>Au travers de cette page web</strong>, vous visualisez le cycle de déroulement de la sélection aléatoire de rues à partir d'une rue entrée par un joueur.</p>
 					<strong>Alors ?</strong>
 					<h2 class="content-heading">Desirez vous voir ce déroulement ?</h2>
-					<p><img decoding="async" class="content-image" alt="" width="810" height="456" srcset="../docs/monostreet.png" sizes="(max-width: 810px) 100vw, 810px"></p>
+					<p><img decoding="async" class="content-image" alt="" width="810" height="456" srcset="imageFond.png" sizes="(max-width: 810px) 100vw, 810px"></p>
 					<a href='createGame.php?'><button id = "jouer">Creer une Partie !</button></a>
 					<a href='joinGame.php?'><button id = "jouer">Rejoindre une Partie !</button></a>
 					<hr>
