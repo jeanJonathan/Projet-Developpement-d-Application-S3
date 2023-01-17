@@ -38,18 +38,8 @@ session_start();
 						</div>";
                 }
                 else{
-<<<<<<< HEAD
-                   
-                    echo "<a href='renvoie.php'><button>Mon Compte</button></a>";
-=======
-                    echo "<a href='deconnexion.php'><button>Se deconnecter</button></a>";
-					echo "<div class='header-inner'>
-							<div class='header-logo'>
-								<span class='header-logo-text'><a href='#' rel='home'>MONOSTREET</a></span>
-							</div>
-						</div>";
+                    
 						echo "<a href='compte.php'><button>Mon Compte</button></a>";
->>>>>>> 6936cce274549c7a1b1c00e750444595d8be20f9
                 }
             ?>
 			
