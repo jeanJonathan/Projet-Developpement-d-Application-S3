@@ -7,17 +7,34 @@
  * date 
  * 
  * */
+include("rechercheDeRue/main.php");
+
 session_start();
 if (!isset($_SESSION['pseudo'])) {
     header("Location: connexion.php");
 }
+
+
+
+$lesRues = listeDeRues1("rechercheDeRue/Oloron80.csv");
+$listeParNom = [];
+foreach ($lesRues as $nomDeRues) {
+    $listeParNom[] = $nomDeRues[1];
+}
+    
 ?>
 
 <form method="POST" action="" text-align="center">
     Nombre de joueur<input type="number" name="nbJoueur" class="input" min="2" max="4">
     </br>
-    Votre Rue<input type="text" name="laRue" class="input" placeholder="la rue">
-    </br>
+    <select name="laRue" id="rue_select">
+    <option value="">Choisissez une rue</option>
+    <?php
+        foreach ($listeParNom as $nomDeRue) {
+            echo "<option value='$nomDeRue'>$nomDeRue</option>";
+        }
+    ?>
+</select>
     <input type="submit" name="envoie" value="Créer la partie">
 </form>
 
@@ -29,9 +46,5 @@ if(isset($_POST['laRue'])){
         echo "<meta http-equiv='refresh' content='0; URL=http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE/Projet-Developpement-d-Application-S3/monostreet/jeu.php'>";
     }
 }
-
-echo isset($_SESSION);
-
-
 
 ?>
