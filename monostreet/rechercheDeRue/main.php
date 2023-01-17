@@ -32,7 +32,12 @@ $csv = 'Oloron80.csv';
 
 
 //---------------CREATION DE LA LISTE-----------------
-
+/**
+ * 
+ * @brief La fonction listeDeRues pour lister les rue voisines a partir du nom d'une rue entree en parametre
+ * version 
+ * 
+ * */
 function listeDeRues($nomcsv){
 
     $lesRues = fopen($nomcsv, 'r');
@@ -84,7 +89,12 @@ print_r($liste);
 echo '</pre>';*/
 
 
-
+/**
+ * 
+ * @brief La fonction ruesPlusProches50 pour receptionner l'ensemble des rues voisine dans un rayon de 50km
+ * version 
+ * 
+ * */
 function ruesPlusProches50($listeDeRues, $laRue){
     $diametre = 0.1;
     $listeDes50Rues = [];
@@ -123,6 +133,12 @@ function ruesPlusProches50($listeDeRues, $laRue){
 }
 
 /** RECHERCHE DU PARCOURS */
+/**
+ * 
+ * @brief La fonction trouverParcous pour faire le parcours des rues et afficher le cycle correspondant
+ * version 
+ * 
+ * */
 function trouverParcours($rue, $afficher){
     
     
