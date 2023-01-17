@@ -1,0 +1,43 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+header{
+	color: white;
+	height: 100vh; /*le header prend 100% de la hauteur (taille verticale) de l'ecran */
+	align-items: left;
+	background-image: linear-gradient(to bottom, rgba(40,54,55,0.603),rgba(0,0,128,0.5)),url(affiche2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-align: center;
+    text-size-adjust: 100px;
+}
+
+header>form{
+
+    padding-top: 300px;
+}
+button{
+	color: white;
+	background-color: rgb(240, 95, 64);
+	text-align: center;
+	border-radius: 50px;
+	padding: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
+	border: none;
+	-webkit-transition: all 0.3s ease-out 0s;
+}
+
+/**Souris sur le Bouton**/
+button:hover{
+    background-color: black;
+    color: white;
+}

@@ -1,91 +1,89 @@
 <?php
-/**
- * @file Connexion.php 
- * @brief  page implementant la connexion des utilisateurs
- * @autor Guillaume Arricastre
- * version 
- * date 12/01/2023
- * 
- * */
 session_start();
-if(isset($_POST['envoie'])){
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
-        $pseudo = $_POST['pseudo'];
-        $mdp = $_POST['mdp'];
+/*
+Page: connexion.php
+*/
 
-        //$query = "SELECT * FROM compte WHERE nom ='$pseudo' AND mdp = '$mdp'";
-        //$result = $connection->query($query);
+$login_valide_admin = "root";
+$pwd_valide_admin = "root";
 
-        if ($pseudo=="root" && $mdp=="root"){//$result->num_rows > 0) {
-            $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['mdp'] = $mdp;
-            //$query = "SELECT id FROM compte WHERE nom ='$pseudo' AND mdp = '$mdp'";
-            //$result = $connection->query($query);
-            //$_SESSION['id'] = $result;
-            header('Location: monostreet.php');
+
+//si le bouton "Connexion" est cliqué
+if(isset($_POST['connexion'])){
+    // on vérifie que le champ "Pseudo" n'est pas vide
+    // empty vérifie à la fois si le champ est vide et si le champ existe belle et bien
+    if(empty($_POST['pseudo'])){
+        echo "Le champ Pseudo est vide.";
+    } else {
+        // on vérifie maintenant si le champ "Mot de passe" n'est pas vide"
+        if(empty($_POST['mdp'])){
+            echo "Le champ Mot de passe est vide.";
+        } else {
+            
+            $Pseudo =($_POST['pseudo']); 
+            $MotDePasse =($_POST['mdp']);
+            //on se connecte à la base de données:
+
+            //on vérifie que la connexion s'effectue correctement:
+            //on fait maintenant la requête dans la base de données pour rechercher si ces données existent et correspondent:
+                
+                if ($login_valide_admin == $_POST['pseudo'] && $pwd_valide_admin == $_POST['mdp']) {
+
+                 $_SESSION['pseudo'] = $_POST['pseudo'];
+                 $_SESSION['mdp'] = $_POST['mdp'];
+                 $CONNEXION=true;
+
+              
+                header ('location: monostreet.php');
+         
+                    
+            }
+            else {
+                echo "Mauvais identifiants fournies";
+            }
         }
-        else{
-            echo "Mot de passe ou pseudo incorrect;";
-        }
-                        
-    }
-    else{
-        echo "Veuillez completer tous les champs ...";
     }
 }
+
 ?>
-<!DOCTYPE html>
 <html>
-    <style>
-        *{
-            padding : 0px;
-            margin: 0 auto;
-            text-align:center;
-        }
+<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="connexion.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CONNEXION</title>
+	</head>
 
-        h1{
-            text-align:center;
-            color: black;
-        }
+<header>
 
-        #titre_select{
-            text-align: center;
-            background-color: black;
-            color: white;
-            height : 50px;
-            width : 12em;
-            border-radius: 10px;
-            margin : 10px;
-            padding : 2px;
-        }
+<form action="connexion.php" method="post">
+        <div class="container">
+            <div class="connexion">
+                <div class="info-connexion">
+                    <h2>Connexion</h2>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="pseudo" id="login" placeholder="Login">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="mdp" id="password" placeholder="Mot de passe">
+                        </div>
+                        <div class="form-bouton">
+                            <div class="souvenir">
+                                <input type="checkbox" name="souvenir" id="souvenir">
+                                <label for="souvenir">Se souvenir de moi</label>
+                            </div>
+                        </div>
+                        
+                        
+                        <button type="submit" name="connexion">Connexion</button>
 
-        header{
-            height: 50vh; /*le header prend 100% de la hauteur (taille verticale) de l'ecran */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            padding: 15px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            text-align: center;
-        }
+                    </form>
+                </div>
+            </div>
+        </div>
+</header>
 
-        body>form>input{
-            padding : 5px;
-            margin : 5px;
-        }
-        
-    </style>
-    <header>
-        <h1>Page de connexion</h1>
-    </header>
-    <body>
-        <form method="POST" action="" align="center">
-            <input type="text" name="pseudo" class="input">
-            </br>
-            <input type="text" name="mdp" class="input">
-            </br>
-            <input type="submit" name="envoie">
-        </form>
-    </body>
 
 </html>
+

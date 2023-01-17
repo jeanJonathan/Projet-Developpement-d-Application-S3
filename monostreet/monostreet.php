@@ -23,20 +23,21 @@ session_start();
 <body>
 	<div class="container">
 		<header class="header">
+		<div class="header-inner">
+				<div class="header-logo">
+					<span class="header-logo-text"><a href="#" rel="home">MONOSTREET</a></span>
+				</div>
+			</div>
             <?php
                 if(!isset($_SESSION['pseudo'])){
                     echo "<a href='connexion.php?'><button>Se connecter</button></a>";
                 }
                 else{
-                    echo "<a href='deconnexion.php'><button>Se deconnecter</button></a>";
-                    echo "<a href='compte.php'><button>Mon Compte</button></a>";
+                   
+                    echo "<a href='renvoie.php'><button>Mon Compte</button></a>";
                 }
             ?>
-			<div class="header-inner">
-				<div class="header-logo">
-					<span class="header-logo-text"><a href="#" rel="home">MONOSTREET</a></span>
-				</div>
-			</div>
+			
 		</header>
 		<main class="main">
 			<article class="content">

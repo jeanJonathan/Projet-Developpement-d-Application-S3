@@ -1,0 +1,399 @@
+/**{
+	padding: 0px;
+	margin: 0px;
+}
+header {
+	display: block;
+	background-image: url(header.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center center;
+   
+
+}	*/
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+
+/*******************************************************
+------------------------HEADER--------------------------
+*******************************************************/
+header{
+	color: white;
+	height: 100vh; /*le header prend 100% de la hauteur (taille verticale) de l'ecran */
+	align-items: left;
+	background-image: linear-gradient(to bottom, rgba(40,54,55,0.603),rgba(0,0,128,0.5)), url(affiche2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+/**Titre Principale**/
+#header-title{
+	text-align: center;
+	grid-column: span 2;
+	padding:  0px;
+	font-weight: bold; /*type d'ecriture*/
+	grid-row-start: 2;
+}	
+
+/**Partie en haut a gauche**/
+header>p{
+	text-align: left;
+    padding-top: 50px;
+}
+
+/**Boutons en haut a droite**/
+header>nav{
+	padding: 0%;
+	width: 100%;
+	text-align: left;
+}
+
+nav>ul>li{
+    display : inline;
+    padding :10px
+}
+
+header>nav>ul>li>a {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+
+/**Titre**/
+#header-title>h1 {
+	text-align: center;
+	font-size: 3em;
+	height: 2em;
+	border-top: solid;
+	border-width: 2px;
+
+}
+
+/**Trait**/
+#header-title>.trait{
+	width: 60px;
+	height: 3px;
+	background-color: rgb(240, 95, 64);
+	justify-self: center;/*ne marche pas*/
+	padding: 0%;
+	border: none;
+}
+
+
+/**Phrase**/
+#header-title>p{
+	color: white;
+	padding-bottom: 25px;
+	
+}
+
+header>form{
+    padding-top: 250px;
+    text-align: center;
+}
+
+/**Bouton**/
+button{
+ 
+
+	color: white;
+	background-color: rgb(240, 95, 64);
+	text-align: center;
+	border-radius: 50px;
+	padding: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
+	border: none;
+	-webkit-transition: all 0.3s ease-out 0s;
+}
+
+/**Souris sur le Bouton**/
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+
+/*******************************************************
+--------------------CORPS PRINCIPAL---------------------
+*******************************************************/
+
+
+#main{
+	text-align: center;
+	background-color: rgb(240, 95, 64);
+	background-size: cover;
+	color: white;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	padding: 2em;
+}
+
+/**Titre de la Partie**/
+#main>h2{
+	padding-bottom: 1em;
+	font-size: 2em;
+}
+
+/**Trait**/
+#main>.trait{
+	width: 60px;
+	height: 3px;
+	background-color: white;
+	justify-self: center;/*ne marche pas*/
+}
+
+/**Texte**/
+#main>p{
+	padding-top: 1em;
+	padding-bottom: 3em;
+	color: lightgray;
+	font-size: 1.2em;
+}
+
+/**Bouton**/
+#main>a>button{
+	vertical-align: center;
+	background-color: white;
+	color: black;
+	text-align: center;
+	border-radius: 50px;
+	padding: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
+	-webkit-transition: all 0.3s ease-out 0s;
+	
+}
+
+/**Souris sur le Bouton**/
+#main>button:hover{
+    background-color: black;
+    color: white;
+}
+
+/**Deuxieme Partie**/
+#sous-parties{
+	
+	display: grid;
+	height: 25em;
+	text-align: center;
+	padding: 4em;
+	grid-gap: 10px;
+	background-color: rgb(240, 95, 64) ;
+}
+
+/**Titre de la partie**/
+#second-title>h2{
+	text-align: center;
+	padding: 30px;
+	font-weight: bold;
+	color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/**Trait**/
+#sous-parties>.trait{
+	width: 60px;
+	height: 3px;
+	background-color: rgb(240, 95, 64);
+	justify-self: center;
+}
+
+/**Icone**/
+section>svg{
+	width: 5em;
+}
+
+/**Troisieme Partie (6images)**/
+div{
+	display: grid;
+}
+
+/**Image**/
+div>img{
+	height: 100%;
+	width: 100%;
+}
+
+/*******************************************************
+-------------------------FOOTER-------------------------
+*******************************************************/
+footer{
+	text-align: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	height: 15em;
+	padding: 3em;
+	
+}
+
+/**titre et texte**/
+#titre-footer{
+	grid-column: span 2;
+	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/**Trait**/
+#titre-footer>.trait{
+	width: 60px;
+	height: 3px;
+	background-color: rgb(240, 95, 64);
+	justify-self: center;/*ne marche pas*/
+}
+
+/**Phrase**/
+#titre-footer>p{
+	text-align: center;
+	padding: 2em;
+}
+
+/**Numero**/
+footer>p{
+	text-align: center;
+}
+
+/**mail**/
+#mail{
+	color: rgb(240, 95, 64);
+}
+
+
+
+/**Version Mobile**/
+@media screen and (max-width:768px){
+	/**phrase**/
+	header>p{
+		text-align: center;
+		padding-bottom: 1em;
+	}
+
+	/**Boutons en haut a droite**/
+	header>nav>ul{
+		text-align: center;
+	}
+
+	ul{
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		padding-bottom: 10px;
+	}
+
+	/**Titre**/
+	#header-title>h1 {
+		padding-top: 3em;
+		padding-bottom: 3em;
+	}
+
+	/**Phrase**/
+	header>p{
+        text-align: left;
+
+	}
+
+	/**Premiere Partie**/
+	#main{
+		height: 35em;
+	}
+
+	/**Titre de la Partie**/
+	#main>h2{
+		padding-top: 1em;
+	}
+
+	/**Texte**/
+	#main>p{
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+
+	/**Deuxieme Partie**/
+	#sous-parties{
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	/**Titre de la partie**/
+	#second-title{
+		grid-column: span 2;
+	}
+
+	/**Trait**/
+	#sous-parties>.trait{
+		grid-column: span 2;
+	}
+
+	/**Troisieme Partie (6images)**/
+	div{
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		padding-top: 1em;
+	}
+}
+
+/**Version PC**/
+@media screen and (min-width:767px){
+
+	
+	/**Boutons en haut a droite**/
+	header>nav>ul{
+		text-align: right;
+	}
+
+	/**Titre**/
+	#header-title>h1 {
+		padding-top: 5em;
+	}
+
+	/**Premiere Partie**/
+	#main{
+		height: 25em;
+		
+	}
+
+	/**Titre de la Partie**/
+	#main>h2{
+		padding-top: 2em;
+	}
+
+	/**Texte**/
+	#main>p{
+		padding-right: 20em;
+		padding-left: 20em;
+	}
+
+	/**Deuxieme Partie**/
+	#sous-parties{
+		grid-template-rows: 1fr 1fr 2fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	/**Titre de la partie**/
+	#second-title{
+		grid-column: span 4;
+	}
+
+	/**Trait**/
+	#sous-parties>.trait{
+		grid-column: span 4;
+	}
+
+
+	/**Troisime Partie (6images)**/
+	div{
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+	}
+}
+
+
