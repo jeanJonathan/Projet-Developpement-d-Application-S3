@@ -2,47 +2,47 @@
 
 include("Coordonnees.php");
 
+/** Classe Rue */
 class Rue
 {
-    private $_nomRue;
-    private $_coordonnees;
+    /** Attributs définissant une Rue */
+    private $_nomRue; // Nom de la Rue
+    private $_coordonnees; // Coordonnees de la Rue
 
+    /** Constructeur de Coordonnees */
     function __construct($nom, $coord)
     {
         $this->_nomRue = $nom;
         $this->_coordonnees = $coord;
     }
 
+    /** Getter */
+    // Renvoie le nom de la Rue
     public function getNomRue()
     {
         return $this->_nomRue;
     }
 
+    // Renvoie les coordonnees de la Rue
     public function getCoordonnees()
     {
         return $this->_coordonnees;
     }
 
-    public function setNomRue($nom = "")
+    /** Setter */
+    // Remplace le nom de la Rue par $nom
+    public function setNomRue($nom)
     {
-        if ($nom == "")
-        {
-            return $this->_nomRue;
-        }
-
         $this->_nomRue = $nom;
     }
 
-    public function setCoordonnees($coord = "")
+    // Remplace les coordonnees de la Rue par $coord
+    public function setCoordonnees($coord)
     {
-        if ($coord == "")
-        {
-            return $this->_coordonnees;
-        }    
-
         $this->_coordonnees = $coord;
     }
 
+    // Affiche la Rue de la forme : Nom(Latitude;Longitude)
     public function afficherRue()
     {
         echo $this->_nomRue."(".$this->_coordonnees->getLatitude().";".$this->_coordonnees->getLongitude().")"."<br/>";
