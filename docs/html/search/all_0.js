@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['connexion_2ephp_0',['connexion.php',['../connexion_8php.html',1,'']]],
-  ['coordonnees_1',['Coordonnees',['../class_coordonnees.html',1,'']]],
-  ['creategame_2ephp_2',['createGame.php',['../create_game_8php.html',1,'']]]
+  ['_5f_5fconstruct_0',['__construct',['../class_coordonnees.html#a7f7004979844d82133f783f188f8f725',1,'Coordonnees\__construct()'],['../class_rue.html#ad8e9232be5d043c91e7e968591f16420',1,'Rue\__construct()']]]
 ];
