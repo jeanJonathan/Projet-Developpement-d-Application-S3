@@ -20,12 +20,7 @@
                         <div class="form-group">
                             <input type="password" class="form-control" name="mdp" id="password" placeholder="Code de la partie">
                         </div>
-                        <div class="form-bouton">
-                            <div class="souvenir">
-                                <input type="checkbox" name="souvenir" id="souvenir">
-                                <label for="souvenir">Se souvenir de moi</label>
-                            </div>
-                        </div>
+                        
                         
                         
                         <button type="submit" name="envoie">Rejoindre</button>
