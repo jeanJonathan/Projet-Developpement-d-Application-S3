@@ -73,7 +73,6 @@ function listeDeRues1($nomcsv){
     }
 
     $listeFinaleSansApostrophe = enleverApostrophe($listeFinale);
-
     return $listeFinaleSansApostrophe;
 }
 
@@ -88,18 +87,17 @@ function enleverApostrophe($listeAvecApostrophe){
     $listeARenvoyer = $listeAvecApostrophe;
     foreach ($listeAvecApostrophe as $rue) {
         $nouvNom = "";
-        foreach($rue[1] as $char){
-            if ($char == "'") {
-                $nouvNom += " ";
+        for ($i=0; $i < strlen($rue[1]); $i++) { 
+            if ($rue[1][$i] == "'") {
+                $nouvNom = $nouvNom." ";
             }
             else {
-                $nouvNom += $char;
+                $nouvNom = $nouvNom.$rue[1][$i];
             }
         }
         $listeARenvoyer[$compteur][1] = $nouvNom;
         $compteur += 1;
     }
-    var_dump($listeARenvoyer);
     return $listeARenvoyer;
 }
 
