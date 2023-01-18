@@ -71,6 +71,7 @@ foreach ($lesRues as $nomDeRues) {
         height: 40px;
         margin : 10px;
         background-color: rgb(122, 122, 122);
+        color: white;
         font-weight: bold;
         border: none;
         border-radius : 10px;
@@ -81,7 +82,8 @@ foreach ($lesRues as $nomDeRues) {
 
         /**Bouton selectionné**/
         input:hover {
-        background-color: red;
+        background-color: yellow;
+        color: black;
         }
 
         #leInput{

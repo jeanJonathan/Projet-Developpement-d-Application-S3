@@ -108,6 +108,7 @@ button {
 	height: 40px;
 	margin : 10px;
 	background-color: rgb(122, 122, 122);
+	color: white;
 	font-weight: bold;
 	border: none;
 	border-radius : 10px;
@@ -119,7 +120,8 @@ button {
   
   /**Bouton selectionné**/
   button:hover {
-	background-color: red;
+	background-color: yellow;
+	color: black;
   }
 
 /*******************************************************
@@ -165,6 +167,7 @@ button {
 	height: 40px;
 	margin : 10px;
 	background-color: rgb(122, 122, 122);
+	color: white;
 	font-weight: bold;
 	border: none;
 	border-radius : 10px;
@@ -176,7 +179,8 @@ button {
   
   /**Bouton selectionné**/
   button:hover {
-	background-color: red;
+	background-color: yellow;
+	color: black;
   }
 
 /**Deuxieme Partie**/
