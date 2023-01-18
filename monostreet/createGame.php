@@ -118,7 +118,7 @@ foreach ($lesRues as $nomDeRues) {
 <?php
 
 if(isset($_POST['laRue'])){
-    var_dump($_POST['laRue']); 
+
     $_SESSION['rueDeDepart'] = $_POST['laRue'];
     if (isset($_POST['nbJoueur'])) {
         echo "<a href='jeu.php?'><button>Jouer !</button></a>";
