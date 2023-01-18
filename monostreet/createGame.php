@@ -121,7 +121,7 @@ if(isset($_POST['laRue'])){
 
     $_SESSION['rueDeDepart'] = $_POST['laRue'];
     if (isset($_POST['nbJoueur'])) {
-        echo "<a href='jeu.php?'><button>Jouer !</button></a>";
+        echo "<script type='text/javascript'>document.location.replace('jeu.php');</script>";
     }
 }
 
