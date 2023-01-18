@@ -14,34 +14,32 @@
 
 /* Header styles */
 .header {
-  background-color: #f2f2f2;
-  padding: 20px 0;
-<<<<<<< HEAD
-  text-align: center;
-=======
+  
+
   display: grid;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: auto;
+  align-items: center;
+
   text-align : center;
 
->>>>>>> 6936cce274549c7a1b1c00e750444595d8be20f9
 }
+
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.header-logo {
-  font-size: 1.5rem;
-}
+
 .header-logo-text a {
   text-decoration: none;
   color: #333;
+  font-size: 1.5rem;
 }
 
 /* Main content styles */
 .main {
   padding: 20px;
+  
 }
 .content {
   margin-bottom: 20px;

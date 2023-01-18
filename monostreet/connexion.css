@@ -23,21 +23,22 @@ header>form{
 
     padding-top: 300px;
 }
-button{
-	color: white;
-	background-color: rgb(240, 95, 64);
-	text-align: center;
-	border-radius: 50px;
-	padding: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
+/**Bouton**/
+button {
+	width: 13em;
+	height: 40px;
+	margin : 10px;
+	background-color: rgb(122, 122, 122);
 	font-weight: bold;
 	border: none;
+	border-radius : 10px;
+	text-align: center;
+	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out 0s;
-}
-
-/**Souris sur le Bouton**/
-button:hover{
-    background-color: black;
-    color: white;
-}
+  
+  }
+  
+  /**Bouton selectionné**/
+  button:hover {
+	background-color: red;
+  }
