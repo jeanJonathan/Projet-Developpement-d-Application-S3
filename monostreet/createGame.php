@@ -118,7 +118,7 @@ foreach ($lesRues as $nomDeRues) {
 if(isset($_POST['laRue'])){
     $_SESSION['rueDeDepart'] = $_POST['laRue'];
     if (isset($_POST['nbJoueur'])) {
-        echo "<meta http-equiv='refresh' content='0; URL=http://lakartxela.iutbayonne.univ-pau.fr/~garricastres/s3/SAE/gitSAE/Projet-Developpement-d-Application-S3/monostreet/jeu.php'>";
+        echo "<meta http-equiv='refresh' content='0; URL=http://lakartxela.iutbayonne.univ-pau.fr/~ngomes004/s3/Projet-Developpement-d-Application-S3/monostreet/jeu.php'>";
     }
 }
 
