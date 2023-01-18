@@ -14,22 +14,13 @@
 
 /* Header styles */
 .header {
-<<<<<<< HEAD
   
 
-=======
-  background-color: #f2f2f2;
-  padding: 20px 0;
->>>>>>> BG1
   display: grid;
   grid-template-columns: 30% 40% 30%;
   align-items: center;
 
   text-align : center;
-<<<<<<< HEAD
-
-=======
->>>>>>> BG1
 }
 
 .header-inner {
@@ -38,16 +29,6 @@
   justify-content: center;
 }
 
-<<<<<<< HEAD
-=======
-.header>.header-inner{
-  /*grid-column: 1 / 2;*/
-}
-
-.header-logo {
-  font-size: 1.5rem;
-}
->>>>>>> BG1
 .header-logo-text a {
   text-decoration: none;
   color: #333;
