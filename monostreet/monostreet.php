@@ -28,9 +28,11 @@ session_start();
 		<?php
                 if(!isset($_SESSION['pseudo'])){
                     echo "<a href='connexion.php?'><button>Se connecter</button></a>";
+					
                 }
                 else{
-					echo "<a href='compte.php'><button>Mon Compte</button></a>";
+                    
+						echo "<a href='renvoie.php'><button>Mon Compte</button></a>";
                 }
             ?>
 </div>
