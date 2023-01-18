@@ -72,7 +72,33 @@ function listeDeRues1($nomcsv){
         $listeFinale[] = [$vraiListe[$j][9],$vraiListe[$j][7],$vraiListe[$j][3],$vraiListe[$j][10],$vraiListe[$j][11]];
     }
 
-    return $listeFinale;
+    $listeFinaleSansApostrophe = enleverApostrophe($listeFinale);
+    return $listeFinaleSansApostrophe;
+}
+
+/**
+ * 
+ * @brief Fonction prenant en parametre une liste comprenant les differentes caracteristiques d'une rue et qui renvoie cette meme liste mais en enlever les apostrophes qu'il y a dans les noms des rues
+ * version 
+ * 
+ * */
+function enleverApostrophe($listeAvecApostrophe){
+    $compteur = 0;
+    $listeARenvoyer = $listeAvecApostrophe;
+    foreach ($listeAvecApostrophe as $rue) {
+        $nouvNom = "";
+        for ($i=0; $i < strlen($rue[1]); $i++) { 
+            if ($rue[1][$i] == "'") {
+                $nouvNom = $nouvNom." ";
+            }
+            else {
+                $nouvNom = $nouvNom.$rue[1][$i];
+            }
+        }
+        $listeARenvoyer[$compteur][1] = $nouvNom;
+        $compteur += 1;
+    }
+    return $listeARenvoyer;
 }
 
 /** Fonction qui renvoie une liste de Rue */
