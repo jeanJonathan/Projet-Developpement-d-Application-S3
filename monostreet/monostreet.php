@@ -22,7 +22,7 @@ session_start();
 <body>
 	<div class="container">
 		<header class="header">
-		<img src="logo.png"width=45% height=70%>
+		<img src="logo.png"width=45% height=95%>
 		<span class="header-logo-text"><a href="#" rel="home">MONOSTREET</a></span>
 		<?php
                 if(!isset($_SESSION['pseudo'])){
