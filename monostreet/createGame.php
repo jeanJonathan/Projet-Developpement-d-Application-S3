@@ -26,79 +26,15 @@ foreach ($lesRues as $nomDeRues) {
 
 <!DOCTYPE html>
 <html>
-    <style>
-        *{
-            padding : 0px;
-            margin: 0 auto;
-            text-align:center;
-        }
-
-        h1{
-            text-align:center;
-            color: black;
-        }
-
-        #titre_select{
-            text-align: center;
-            background-color: black;
-            color: white;
-            height : 50px;
-            width : 12em;
-            border-radius: 10px;
-            margin : 10px;
-            padding : 2px;
-        }
-
-        header{
-            height: 50vh; /*le header prend 100% de la hauteur (taille verticale) de l'ecran */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            padding: 15px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            text-align: center;
-        }
-
-        body>form>input{
-            padding : 5px;
-            margin : 5px;
-        }
-
-
-        /**Bouton**/
-        input {
-        width: 10em;
-        height: 40px;
-        margin : 10px;
-        background-color: rgb(122, 122, 122);
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius : 10px;
-        text-align: center;
-        cursor: pointer;
-        -webkit-transition: all 0.3s ease-out 0s;
-        }
-
-        /**Bouton selectionné**/
-        input:hover {
-        background-color: yellow;
-        color: black;
-        }
-
-        #leInput{
-            width: 10em;
-            height: 20px;
-        }
-        
-    </style>
+<link rel="stylesheet" type="text/css" href="connexion.css"> 
     <header>
         <h1>Creation de la Partie</h1>
-    </header>
-    <body>
         <form method="POST" action="" text-align="center">
-        Nombre de joueur<input type="number" id="leInput" name="nbJoueur" class="input" min="2" max="4">
+        Nombre de joueur
+            <input type="number" id="leInput" name="nbJoueur" class="input" min="2" max="4">
+        
         </br>
+        Choix de la rue de départ
         <select name="laRue" id="rue_select">
         <option value="">Choisissez une rue</option>
         <?php
@@ -108,8 +44,11 @@ foreach ($lesRues as $nomDeRues) {
         ?>
         </select>
         </br>
-        <input type="submit" name="envoie" value="Créer la partie">
+        <button type="submit" name="envoie">Creer la partie</button>
         </form>
+    </header>
+    <body>
+        
     </body>
 
 </html>
