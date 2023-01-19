@@ -21,6 +21,10 @@ session_start();
 <form action="deconnexion.php" method="post">
     <button type="submit" id="envoyer" name="envoyer">Deconnexion</button>
 <form>
+</br>
+<form action="monostreet.php" method="post">
+    <button type="submit" id="accueil" name="accueil">Retour a l'accueil</button>
+<form>
 
 </header>
 </html>

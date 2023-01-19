@@ -44,3 +44,46 @@ button {
 	background-color: yellow;
 	color: black;
   }
+
+  /**Input**/
+input {
+	width: 10em;
+	height: 35px;
+	margin : 10px;
+	background-color: rgb(193, 192, 192);
+	color: white;
+	font-weight: bold;
+	border: none;
+	border-radius : 10px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease-out 0s;
+  
+  }
+  
+  /**Input selectionné**/
+  input:hover {
+	background-color: yellow;
+	color: black;
+  }
+
+  #rue_select{
+	width: 13em;
+	height: 40px;
+	margin : 10px;
+	background-color: rgb(122, 122, 122);
+	color: white;
+	font-weight: bold;
+	border: none;
+	border-radius : 10px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease-out 0s;
+  
+  }
+  
+  /**Input selectionné**/
+  #rue_select:hover {
+	background-color: yellow;
+	color: black;
+  }

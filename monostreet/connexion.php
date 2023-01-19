@@ -68,13 +68,6 @@ if(isset($_POST['connexion'])){
                         <div class="form-group">
                             <input type="password" class="form-control" name="mdp" id="password" placeholder="Mot de passe">
                         </div>
-                        <div class="form-bouton">
-                            <div class="souvenir">
-                                <input type="checkbox" name="souvenir" id="souvenir">
-                                <label for="souvenir">Se souvenir de moi</label>
-                            </div>
-                        </div>
-                        
                         
                         <button type="submit" name="connexion">Connexion</button>
 

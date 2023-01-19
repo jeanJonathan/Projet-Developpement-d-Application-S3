@@ -26,7 +26,7 @@ foreach ($lesRues as $nomDeRues) {
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="connexion.css"> 
+<link rel="stylesheet" type="text/css" href="cssGeneral.css"> 
     <header>
         <h1>Creation de la Partie</h1>
         <form method="POST" action="" text-align="center">

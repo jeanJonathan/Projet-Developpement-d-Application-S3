@@ -8,12 +8,12 @@ session_start();
     <style>
         body{
             display: grid;
-            padding-left : 6em;
-            grid-template-columns: 30% 70%;
+            padding-left : 5em;
+            grid-template-columns: 26% 74%;
         }
 
         div{
-            padding-top : 18em;
+            padding-top : 12em;
         }
     </style>
     <body>
