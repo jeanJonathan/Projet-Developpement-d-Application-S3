@@ -623,7 +623,8 @@ function trouverParcours($laRue){
     echo "<div id='parcoursRue'>";
     for ($i=0; $i < count($listeFin); $i++) { 
         if ($listeFin[$i] != null) {
-            echo $listeFin[$i]->getNomRue()."</br>";
+            $listeFin[$i]->afficheNom();
+            echo "</br>";
         }
         else {
             echo "None";

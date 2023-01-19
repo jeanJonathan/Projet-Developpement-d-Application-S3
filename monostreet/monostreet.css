@@ -1,0 +1,118 @@
+/**
+ * @file StyleIndex.css
+ * @brief fichier css de la page d'acceuil
+ * @autor KOFFI jean-jonathan 
+ * version 
+ * date 
+ * 
+ * */
+/* Global styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header styles */
+.header {
+  
+
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  align-items: center;
+
+  text-align : center;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo-text a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+/* Main content styles */
+.main {
+  padding: 20px;
+  
+}
+.content {
+  margin-bottom: 20px;
+}
+.content-inner {
+  text-align: center;
+}
+.content-heading {
+  margin-bottom: 20px;
+}
+.content-image {
+  max-width: 100%;
+}
+.content-btn {
+  margin-top: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+.content-link {
+  color: blue;
+  text-decoration: underline;
+}
+/* Footer styles */
+.footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-section {
+  margin-right: 20px;
+}
+.footer-section-inner {
+  text-align: left;
+}
+.footer-section-item {
+  margin-bottom: 20px;
+}
+.footer-section-heading {
+  margin-bottom: 10px;
+}
+
+/**Body**/
+body {
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/**Bouton**/
+button {
+  width: 13em;
+  height: 40px;
+  margin : 10px;
+  background-color: rgb(122, 122, 122);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius : 10px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out 0s;
+
+}
+
+/**Bouton selectionné**/
+button:hover {
+  background-color: yellow;
+  color: black
+}
