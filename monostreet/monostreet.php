@@ -38,14 +38,14 @@ session_start();
 		<main class="main">
 			<article class="content">
 				<div class="content-inner">
-					<p><strong>MONOSTREET</strong> est un jeu de société où les joueurs doivent acquérir la concurrence des propriétés des rues associées aux adresses réelles jusqu'à obtenir le monopole. <strong>Au travers de cette page web</strong>, vous visualisez le cycle de déroulement de la sélection aléatoire de rues à partir d'une rue entrée par un joueur.</p>
-					<strong>Alors ?</strong>
-					<h2 class="content-heading">Desirez vous voir ce déroulement ?</h2>
+					<p><strong>MONOSTREET</strong> est un jeu de société où les joueurs doivent acquérir des propriétés representées par des rues associées aux adresses réelles jusqu'à avoir plumé son ou ses adversaire(s). <strong>Au travers de cette page web</strong>, vous pourrez visualiser la génération du parcours plateau à partir de la sélection d'une rue par un joueur.</p>
+					<strong>Une expérience unique</strong>
+					<h2 class="content-heading">Amusez Vous !</h2>
 					<p><img decoding="async" class="content-image" alt="" width="700" height="456" srcset="header.png" ></p>
 					<a href='createGame.php?'><button id = "jouer">Creer une Partie !</button></a>
 					<a href='joinGame.php?'><button id = "jouer">Rejoindre une Partie !</button></a>
 					<hr>
-					<p><strong>Comme tout autre jeu de société</strong>, Monostreet n&#8217;a jamais été aussi simple ! Si jouer au monopoly en ligne avec d&#8217;autres internautes gratuitement vous intéresse, vous aurez bientot la possibilite de jouer la version complete de notre jeu. Vous pouvez <a href="#" class="content-link">consulter les règles de notre jeu </a> pour jouer dans les règles de l’art ;).</p>
+					<p><strong>Comme tout autre jeu de société</strong>, Monostreet n&#8217;a jamais été aussi simple ! Si jouer à notre jeu inédit en ligne avec d&#8217;autres internautes gratuitement vous intéresse, sachez que vous aurez bientôt la possibilité de vous épanouir complètement dans la version intégrale du jeu. Vous pouvez <a href="#" class="content-link">consulter dès à présent les règles de notre jeu</a>  pour vous en imprégner.</p>
 				</div>
 			</article>
 		</main>
