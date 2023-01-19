@@ -93,8 +93,20 @@ class Rue
  * */
     public function afficherRue()
     {
-        echo $this->_nomRue."(".$this->_coordonnees->getLatitude().";".$this->_coordonnees->getLongitude().")"."<br/>";
+        echo utf8_encode($this->_nomRue);
+        echo "(".$this->_coordonnees->getLatitude().";".$this->_coordonnees->getLongitude().")"."<br/>";
     }
+
+/**
+ * 
+ * @brief Affiche le nom de la Rue
+ * version 
+ * 
+ * */
+public function afficheNom()
+{
+    echo utf8_encode($this->_nomRue);
+}
 }
 
 ?>

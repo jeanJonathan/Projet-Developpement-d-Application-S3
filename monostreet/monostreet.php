@@ -16,7 +16,7 @@ session_start();
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="StyleIndex.css">
+	<link rel="stylesheet" type="text/css" href="monostreet.css">
 	<title>MONOSTREET</title>
 </head>
 <body>
@@ -29,7 +29,7 @@ session_start();
                     echo "<a href='connexion.php?'><button>Se connecter</button></a>";
                 }
                 else{
-					echo "<a href='renvoie.php'><button>Mon Compte</button></a>";
+					echo "<a href='profil.php'><button>Mon Compte</button></a>";
                 }
             ?>
 </div>
