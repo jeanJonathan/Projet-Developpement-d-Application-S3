@@ -155,7 +155,7 @@ function ruesPlusProches50($listeDeRues, $laRue){
                     }
                 }
                 // suppression de la rue la plus eloignée
-                unset($listeDes50Rues[array_search($rue, $listeDes50Rues)]);
+                unset($listeDes50Rues[array_search($rueASupprimer, $listeDes50Rues)]);
 
                 sort($listeDes50Rues); // Trie un tableau
 
@@ -210,18 +210,21 @@ function convertirLatPix($x, $latMax, $latMin){
 function trouverParcours($laRue){
 
     //-------------Dessin---------------
-    header("Content-type: image/png");
+    header ("Content-type: image/png");
+
     $largeur = 1000; // largeur du dessin
     $hauteur = 1000; // hauteur du dessin
-    $img = imagecreatetruecolor($largeur, $hauteur); // creation de l'image
-    $noir = imageColorAllocate($img, 0, 0, 0); // creation de l'image noir
+    $img = imagecreate($largeur, $hauteur); // creation de l'image
+
+    $noir = imagecolorallocate($img, 255, 255, 255); // creation de l'image noir
 
     // Couleur
-    $rouge = hexdec("FF"); // canal rouge
-    $vert = hexdec("00"); // canal vert
-    $bleu = hexdec("00"); // canal bleu
     //creation de la couleur rouge
-    $couleurRouge = imageColorAllocate($img, $rouge,$vert, $bleu);
+    $couleurRouge = imagecolorallocate($img, 200, 0, 0);
+    //creation de la couleur rouge
+    $couleurVerte = imagecolorallocate($img, 0, 200, 0);
+    //creation de la couleur bleu
+    $couleurBleue = imagecolorallocate($img, 0, 0, 200);
 
     $listeDesRuesPourCoordonnees = listeDeRues1("rechercheDeRue/Oloron80.csv");
 
@@ -254,16 +257,13 @@ function trouverParcours($laRue){
     $longMax = max($listeDesLong);
     $longMin = min($listeDesLong);
 
-    //on crée le rectangle
-    ImageEllipse ($img, convertirLongPix($rue->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($rue->getCoordonnees()->getLatitude(), $longMax, $longMin), 10, 10, $couleurRouge);
-    ImageEllipse ($img, convertirLongPix($rue->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($rue->getCoordonnees()->getLatitude(), $longMax, $longMin), 5, 5, $couleurRouge);
-
-    //sleep();
+    ImageEllipse ($img, convertirLongPix($rue->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($rue->getCoordonnees()->getLatitude(), $latMax, $latMin), 5, 5, $couleurVerte);
+    ImageEllipse ($img, convertirLongPix($rue->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($rue->getCoordonnees()->getLatitude(), $latMax, $latMin), 10, 10, $couleurVerte);
 
     // affichage des rues
     foreach ($listeFinalePoint as $element) {
-        ImageEllipse ($img, convertirLongPix($element->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($element->getCoordonnees()->getLatitude(), $longMax, $longMin), 10, 10, $couleurRouge);
-        ImageEllipse ($img, convertirLongPix($element->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($element->getCoordonnees()->getLatitude(), $longMax, $longMin), 5, 5, $couleurRouge);
+        ImageEllipse ($img, convertirLongPix($element->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($element->getCoordonnees()->getLatitude(), $latMax, $latMin), 10, 10, $couleurRouge);
+        ImageEllipse ($img, convertirLongPix($element->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($element->getCoordonnees()->getLatitude(), $latMax, $latMin), 5, 5, $couleurRouge);
     }
 
     // Creation de la liste finale contenant les 22 rues
@@ -284,8 +284,8 @@ function trouverParcours($laRue){
 
     $listeFinalePoint[$placeOpp] = null;
 
-    ImageEllipse ($img, convertirLongPix($oppose->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($oppose->getCoordonnees()->getLatitude(), $longMax, $longMin), 10, 10, $couleurRouge);
-    ImageEllipse ($img, convertirLongPix($oppose->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($oppose->getCoordonnees()->getLatitude(), $longMax, $longMin), 5, 5, $couleurRouge);
+    ImageEllipse ($img, convertirLongPix($oppose->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($oppose->getCoordonnees()->getLatitude(), $latMax, $latMin), 10, 10, $couleurBleue);
+    ImageEllipse ($img, convertirLongPix($oppose->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($oppose->getCoordonnees()->getLatitude(), $latMax, $latMin), 5, 5, $couleurBleue);
 
     //definir Est ou Ouest
     $compteur = 0;
@@ -315,12 +315,12 @@ function trouverParcours($laRue){
     $listeFinalePoint[$placeEst] = null;
     $listeFinalePoint[$placeOuest] = null;
 
-    ImageEllipse ($img, convertirLongPix($ouest->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($ouest->getCoordonnees()->getLatitude(), $longMax, $longMin), 10, 10, $couleurRouge);
-    ImageEllipse ($img, convertirLongPix($ouest->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($ouest->getCoordonnees()->getLatitude(), $longMax, $longMin), 5, 5, $couleurRouge);
+    ImageEllipse ($img, convertirLongPix($ouest->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($ouest->getCoordonnees()->getLatitude(), $latMax, $latMin), 10, 10, $couleurBleue);
+    ImageEllipse ($img, convertirLongPix($ouest->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($ouest->getCoordonnees()->getLatitude(), $latMax, $latMin), 5, 5, $couleurBleue);
 
-    ImageEllipse ($img, convertirLongPix($est->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($est->getCoordonnees()->getLatitude(), $longMax, $longMin), 10, 10, $couleurRouge);
-    ImageEllipse ($img, convertirLongPix($est->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($est->getCoordonnees()->getLatitude(), $longMax, $longMin), 5, 5, $couleurRouge);
-
+    ImageEllipse ($img, convertirLongPix($est->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($est->getCoordonnees()->getLatitude(), $latMax, $latMin), 10, 10, $couleurBleue);
+    ImageEllipse ($img, convertirLongPix($est->getCoordonnees()->getLongitude(), $longMax, $longMin), convertirLatPix($est->getCoordonnees()->getLatitude(), $latMax, $latMin), 5, 5, $couleurBleue);
+    
     // Trouver les 18 rues
     //Initialisation
     $depFin = $rue;
@@ -366,16 +366,14 @@ function trouverParcours($laRue){
         $listeFinalePoint[$place] = null;
 
         $listeFin[0 + $compteur] = $depFin;
-
         $x1=convertirLongPix($listeFin[0 + $compteur-1]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y1=convertirLatPix($listeFin[0 + $compteur-1]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+        $y1=convertirLatPix($listeFin[0 + $compteur-1]->getCoordonnees()->getLatitude(), $latMax, $latMin);
         $x2=convertirLongPix($listeFin[0 + $compteur]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y2=convertirLatPix($listeFin[0 + $compteur]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-        ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-
+        $y2=convertirLatPix($listeFin[0 + $compteur]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+        ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
         ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
         ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
-       
+        //imagepng($img);
         //definir le plus proche de oppFin
         for ($i=0; $i < count($listeFinalePoint); $i++) { 
             if ($listeFinalePoint[$i] != null) {
@@ -400,11 +398,11 @@ function trouverParcours($laRue){
         $listeFin[11 + $compteur] = $oppFin;
 
         $x1=convertirLongPix($listeFin[11 + $compteur-1]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y1=convertirLatPix($listeFin[11 + $compteur-1]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+        $y1=convertirLatPix($listeFin[11 + $compteur-1]->getCoordonnees()->getLatitude(), $latMax, $latMin);
         $x2=convertirLongPix($listeFin[11 + $compteur]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y2=convertirLatPix($listeFin[11 + $compteur]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-        ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-
+        $y2=convertirLatPix($listeFin[11 + $compteur]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+        ImageLine($img, $x1, $y1, $x2, $y2, $couleurRouge);
+        
         ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
         ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
 
@@ -437,10 +435,10 @@ function trouverParcours($laRue){
         $listeFin[17 + $compteur] = $ouestFin;
 
         $x1=convertirLongPix($listeFin[17 + $compteur-1]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y1=convertirLatPix($listeFin[17 + $compteur-1]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+        $y1=convertirLatPix($listeFin[17 + $compteur-1]->getCoordonnees()->getLatitude(), $latMax, $latMin);
         $x2=convertirLongPix($listeFin[17 + $compteur]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y2=convertirLatPix($listeFin[17 + $compteur]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-        ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
+        $y2=convertirLatPix($listeFin[17 + $compteur]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+        ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
 
         ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
         ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
@@ -469,15 +467,14 @@ function trouverParcours($laRue){
         $listeFin[6 + $compteur] = $estFin;
 
         $x1=convertirLongPix($listeFin[6 + $compteur-1]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y1=convertirLatPix($listeFin[6 + $compteur-1]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+        $y1=convertirLatPix($listeFin[6 + $compteur-1]->getCoordonnees()->getLatitude(), $latMax, $latMin);
         $x2=convertirLongPix($listeFin[6 + $compteur]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-        $y2=convertirLatPix($listeFin[6 + $compteur]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-        ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
+        $y2=convertirLatPix($listeFin[6 + $compteur]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+        ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
 
         ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
         ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
 
-        //sleep(4);
     }
 
     //determiner les coordonnees moyennes
@@ -509,13 +506,13 @@ function trouverParcours($laRue){
     $listeFin[5] = $depFinEstDeb;
 
     $x1=convertirLongPix($listeFin[4]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y1=convertirLatPix($listeFin[4]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y1=convertirLatPix($listeFin[4]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x2=convertirLongPix($listeFin[5]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y2=convertirLatPix($listeFin[5]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y2=convertirLatPix($listeFin[5]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x3=convertirLongPix($listeFin[6]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y3=convertirLatPix($listeFin[6]->getCoordonnees()->getLatitude(), $longMax, $longMin) ;
-    ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-    ImageLine ($image, $x2, $y2, $x3, $y3, $couleurRouge);
+    $y3=convertirLatPix($listeFin[6]->getCoordonnees()->getLatitude(), $latMax, $latMin) ;
+    ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
+    ImageLine ($img, $x2, $y2, $x3, $y3, $couleurRouge);
 
     ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
     ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
@@ -542,13 +539,13 @@ function trouverParcours($laRue){
     $listeFin[10] = $estFinOppDeb;
 
     $x1=convertirLongPix($listeFin[9]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y1=convertirLatPix($listeFin[9]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y1=convertirLatPix($listeFin[9]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x2=convertirLongPix($listeFin[10]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y2=convertirLatPix($listeFin[10]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y2=convertirLatPix($listeFin[10]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x3=convertirLongPix($listeFin[11]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y3=convertirLatPix($listeFin[11]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-    ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-    ImageLine ($image, $x2, $y2, $x3, $y3, $couleurRouge);
+    $y3=convertirLatPix($listeFin[11]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+    ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
+    ImageLine ($img, $x2, $y2, $x3, $y3, $couleurRouge);
 
     ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
     ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
@@ -575,13 +572,13 @@ function trouverParcours($laRue){
     $listeFin[16] = $oppFinOuestDeb;
 
     $x1=convertirLongPix($listeFin[15]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y1=convertirLatPix($listeFin[15]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y1=convertirLatPix($listeFin[15]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x2=convertirLongPix($listeFin[16]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y2=convertirLatPix($listeFin[16]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y2=convertirLatPix($listeFin[16]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x3=convertirLongPix($listeFin[17]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y3=convertirLatPix($listeFin[17]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-    ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-    ImageLine ($image, $x2, $y2, $x3, $y3, $couleurRouge);
+    $y3=convertirLatPix($listeFin[17]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+    ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
+    ImageLine ($img, $x2, $y2, $x3, $y3, $couleurRouge);
 
     ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
     ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
@@ -608,19 +605,19 @@ function trouverParcours($laRue){
     $listeFin[21] = $ouestFinDepDeb;
 
     $x1=convertirLongPix($listeFin[20]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y1=convertirLatPix($listeFin[20]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y1=convertirLatPix($listeFin[20]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x2=convertirLongPix($listeFin[21]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y2=convertirLatPix($listeFin[21]->getCoordonnees()->getLatitude(), $longMax, $longMin);
+    $y2=convertirLatPix($listeFin[21]->getCoordonnees()->getLatitude(), $latMax, $latMin);
     $x3=convertirLongPix($listeFin[0]->getCoordonnees()->getLongitude(), $longMax, $longMin);
-    $y3=convertirLatPix($listeFin[0]->getCoordonnees()->getLatitude(), $longMax, $longMin);
-    ImageLine ($image, $x1, $y1, $x2, $y2, $couleurRouge);
-    ImageLine ($image, $x2, $y2, $x3, $y3, $couleurRouge);
+    $y3=convertirLatPix($listeFin[0]->getCoordonnees()->getLatitude(), $latMax, $latMin);
+    ImageLine ($img, $x1, $y1, $x2, $y2, $couleurRouge);
+    ImageLine ($img, $x2, $y2, $x3, $y3, $couleurRouge);
 
     ImageEllipse ($img, $x2, $y2, 10, 10, $couleurRouge);
     ImageEllipse ($img, $x2, $y2, 5, 5, $couleurRouge);
 
 
-    imagePNG($img);
+    imagepng($img);
     imageDestroy($img);
     //affichage final
     for ($i=0; $i < count($listeFin); $i++) { 
