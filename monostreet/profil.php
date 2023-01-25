@@ -1,5 +1,15 @@
+
 <?php
+/**
+ * @file profil.php 
+ * @brief fichier permettant a etablire la connexion et deconnexion des utilisateur depuis leur profil
+ * @autor Guillaume Arricastre
+ * version 
+ * date 
+ * 
+ * */
 session_start();
+
 
 ?>
 <!DOCTYPE html>

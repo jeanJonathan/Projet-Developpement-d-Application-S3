@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['distance_0',['distance',['../class_coordonnees.html#a04388b633aa78e4247470841320254c2',1,'Coordonnees']]]
+  ['convertirlatpix_0',['convertirLatPix',['../main_8php.html#a4c69d56cdf42625df71a24467c97bd35',1,'main.php']]],
+  ['convertirlongpix_1',['convertirLongPix',['../main_8php.html#a519a0d56bc0bdd4bd89ec4244ea1122d',1,'main.php']]]
 ];

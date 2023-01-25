@@ -1,3 +1,11 @@
+/**
+ * @file jeu.php 
+ * @brief le fichier du demarrage du deroulement
+ * @autor 
+ * version 
+ * date 
+ * 
+ * */
 <?php
 include("rechercheDeRue/main.php");
 

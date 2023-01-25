@@ -10,12 +10,15 @@
 include("rechercheDeRue/main.php");
 
 session_start();
-if (!isset($_SESSION['pseudo'])) {
+if (!isset2($_SESSION['pseudo'])) {
     header("Location: connexion.php");
 }
 
-
-
+/**
+ * @brief Variables correspondant a la liste des rues du fichier Oloron80.csv
+ * date 
+ * 
+ * */
 $lesRues = listeDeRues1("rechercheDeRue/Oloron80.csv");
 $listeParNom = [];
 foreach ($lesRues as $nomDeRues) {

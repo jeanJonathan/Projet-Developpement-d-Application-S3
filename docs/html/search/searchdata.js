@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_acdglmprst",
+  0: "$_acdeglmprst",
   1: "cr",
-  2: "cdm",
-  3: "_adglprst",
-  4: "p"
+  2: "cdmpt",
+  3: "_acdeglprst",
+  4: "$",
+  5: "p"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "pages"
+  4: "variables",
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Data Structures",
   2: "Files",
   3: "Functions",
-  4: "Pages"
+  4: "Variables",
+  5: "Pages"
 };
 

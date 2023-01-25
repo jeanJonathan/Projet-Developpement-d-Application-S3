@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file rnevoie.php 
+ * @brief fichier presentant la date courante ainsi que le profit du joueur
+ * @autor Guillaume Arricastre
+ * version 
+ * date 
+ * 
+ * */
 session_start();
 
 ?>

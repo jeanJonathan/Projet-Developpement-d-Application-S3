@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projet MonoStreet: Projet-Developpement-d-Application-S3/monostreet/createGame.php File Reference</title>
+<title>Projet MonoStreet: Projet-Developpement-d-Application-S3/monostreet/testDessin.php File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,38 +75,50 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">createGame.php File Reference</div></div>
+  <div class="headertitle"><div class="title">testDessin.php File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>fichier de parametrage de la partie @autor Guillaume Arricastre version date  
+<p>de test des dessins simulant le parcours des rues generer a partir du choix de la rue de l'utilisateur @autor Guillaume Arricastre version date  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a0af93472486724d0355da8a9b5a66dda"><td class="memItemLeft" align="right" valign="top">if(!isset2($_SESSION['pseudo']))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create_game_8php.html#a0af93472486724d0355da8a9b5a66dda">$lesRues</a> = <a class="el" href="main_8php.html#a1a2686f32d99474d8b7a83f1ec560474">listeDeRues1</a>(&quot;rechercheDeRue/Oloron80.csv&quot;)</td></tr>
-<tr class="memdesc:a0af93472486724d0355da8a9b5a66dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variables correspondant a la liste des rues du fichier Oloron80.csv date.  <br /></td></tr>
-<tr class="separator:a0af93472486724d0355da8a9b5a66dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57cea8e572acb90ac3bcc8fbe0622637"><td class="memItemLeft" align="right" valign="top"><a id="a57cea8e572acb90ac3bcc8fbe0622637" name="a57cea8e572acb90ac3bcc8fbe0622637"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$listeParNom</b> = []</td></tr>
-<tr class="separator:a57cea8e572acb90ac3bcc8fbe0622637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6146b4cdec66c94263ddb55afd5946"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_dessin_8php.html#aac6146b4cdec66c94263ddb55afd5946">$image</a> = imagecreate(1000,1000)</td></tr>
+<tr class="memdesc:aac6146b4cdec66c94263ddb55afd5946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variables image de tage 1000*1000 px version date.  <br /></td></tr>
+<tr class="separator:aac6146b4cdec66c94263ddb55afd5946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21af1e4997b7265ac0afd1efaddc8a67"><td class="memItemLeft" align="right" valign="top"><a id="a21af1e4997b7265ac0afd1efaddc8a67" name="a21af1e4997b7265ac0afd1efaddc8a67"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$orange</b> = imagecolorallocate($image, 0, 0, 0)</td></tr>
+<tr class="separator:a21af1e4997b7265ac0afd1efaddc8a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b107e485f857799465ae39f7309eef"><td class="memItemLeft" align="right" valign="top"><a id="af7b107e485f857799465ae39f7309eef" name="af7b107e485f857799465ae39f7309eef"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$bleu</b> = imagecolorallocate($image, 0, 0, 255)</td></tr>
+<tr class="separator:af7b107e485f857799465ae39f7309eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011f852df3c3487d36e6894a5c96e1c3"><td class="memItemLeft" align="right" valign="top"><a id="a011f852df3c3487d36e6894a5c96e1c3" name="a011f852df3c3487d36e6894a5c96e1c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$bleuclair</b> = imagecolorallocate($image, 156, 227, 254)</td></tr>
+<tr class="separator:a011f852df3c3487d36e6894a5c96e1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61fa6b8cde6f307cc0be265e06f059d8"><td class="memItemLeft" align="right" valign="top"><a id="a61fa6b8cde6f307cc0be265e06f059d8" name="a61fa6b8cde6f307cc0be265e06f059d8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$noir</b> = imagecolorallocate($image, 0, 0, 0)</td></tr>
+<tr class="separator:a61fa6b8cde6f307cc0be265e06f059d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af939c1d1ea128829978226d574c4acf9"><td class="memItemLeft" align="right" valign="top"><a id="af939c1d1ea128829978226d574c4acf9" name="af939c1d1ea128829978226d574c4acf9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$blanc</b> = imagecolorallocate($image, 255, 255, 255)</td></tr>
+<tr class="separator:af939c1d1ea128829978226d574c4acf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>fichier de parametrage de la partie @autor Guillaume Arricastre version date </p>
+<div class="textblock"><p>de test des dessins simulant le parcours des rues generer a partir du choix de la rue de l'utilisateur @autor Guillaume Arricastre version date </p>
 </div><h2 class="groupheader">Variable Documentation</h2>
-<a id="a0af93472486724d0355da8a9b5a66dda" name="a0af93472486724d0355da8a9b5a66dda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0af93472486724d0355da8a9b5a66dda">&#9670;&#160;</a></span>$lesRues</h2>
+<a id="aac6146b4cdec66c94263ddb55afd5946" name="aac6146b4cdec66c94263ddb55afd5946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6146b4cdec66c94263ddb55afd5946">&#9670;&#160;</a></span>$image</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">if (!isset2( $_SESSION[ 'pseudo'])) $lesRues = <a class="el" href="main_8php.html#a1a2686f32d99474d8b7a83f1ec560474">listeDeRues1</a>(&quot;rechercheDeRue/Oloron80.csv&quot;)</td>
+          <td class="memname">$image = imagecreate(1000,1000)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Variables correspondant a la liste des rues du fichier Oloron80.csv date. </p>
+<p>Variables image de tage 1000*1000 px version date. </p>
 
 </div>
 </div>

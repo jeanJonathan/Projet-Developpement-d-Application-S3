@@ -1,8 +1,13 @@
 <?php
 session_start();
-/*
-Page: connexion.php
-*/
+/**
+ * @file connexion.php 
+ * @brief Page implementant la connexion des utilisateurs
+ * @autor Guillaume Arricastre
+ * version 
+ * date 
+ * 
+ * */
 
 $login_valide_admin = "root";
 $pwd_valide_admin = "root";

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['trouverparcours_0',['trouverParcours',['../main_8php.html#a3295a56db123587ddbf4834616ea05ea',1,'main.php']]]
+  ['recherchecoordonnees_0',['rechercheCoordonnees',['../main_8php.html#aa1490ad46ccd00fce6463576a662e695',1,'main.php']]],
+  ['ruesplusproches50_1',['ruesPlusProches50',['../main_8php.html#a2b84c558ca3117f80a03826388880eef',1,'main.php']]]
 ];
