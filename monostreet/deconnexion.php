@@ -11,5 +11,5 @@
 
     $_SESSION = array();
     session_destroy();
-    header('Location: monostreet.php');
+    header('Location: index.php');
 ?>
