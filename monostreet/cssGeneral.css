@@ -68,10 +68,10 @@ input {
   }
 
   #rue_select{
-	width: 13em;
-	height: 40px;
+	width: 12em;
+	height: 35px;
 	margin : 10px;
-	background-color: rgb(122, 122, 122);
+	background-color: rgb(193, 192, 192);
 	color: white;
 	font-weight: bold;
 	border: none;

@@ -10,7 +10,7 @@
 include("rechercheDeRue/main.php");
 
 session_start();
-if (!isset2($_SESSION['pseudo'])) {
+if (!isset($_SESSION['pseudo'])) {
     header("Location: connexion.php");
 }
 
@@ -57,13 +57,14 @@ foreach ($lesRues as $nomDeRues) {
 </html>
 
 
+
 <?php
 
 if(isset($_POST['laRue'])){
 
     $_SESSION['rueDeDepart'] = $_POST['laRue'];
     if (isset($_POST['nbJoueur'])) {
-        echo "<script type='text/javascript'>document.location.replace('jeu.php');</script>";
+        echo "<script type='text/javascript'>document.location.replace('genererCode.php');</script>";
     }
 }
 

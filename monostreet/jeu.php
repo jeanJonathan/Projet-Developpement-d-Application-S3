@@ -1,3 +1,4 @@
+<?php
 /**
  * @file jeu.php 
  * @brief le fichier du demarrage du deroulement
@@ -6,10 +7,12 @@
  * date 
  * 
  * */
-<?php
+
 include("rechercheDeRue/main.php");
 
 session_start();
+
+$_GET['code'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +29,7 @@ session_start();
     </style>
     <body>
         <?php
-        trouverParcours($_SESSION['rueDeDepart']);
+        trouverParcours($_SESSION['rueDeDepart'],false);
 
         ?>
     </body>
