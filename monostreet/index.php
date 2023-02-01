@@ -42,8 +42,7 @@ session_start();
 					<strong>Une expérience unique</strong>
 					<h2 class="content-heading">Amusez Vous !</h2>
 					<p><img decoding="async" class="content-image" alt="" width="700" height="456" srcset="header.png" ></p>
-					<a href='createGame.php?'><button id = "jouer">Creer une Partie !</button></a>
-					<a href='joinGame.php?'><button id = "jouer">Rejoindre une Partie !</button></a>
+					<a href='playGame.php?'><button id = "jouer">Jouer !</button></a>
 					<hr>
 					<p><strong>Comme tout autre jeu de société</strong>, Monostreet n&#8217;a jamais été aussi simple ! Si jouer à notre jeu inédit en ligne avec d&#8217;autres internautes gratuitement vous intéresse, sachez que vous aurez bientôt la possibilité de vous épanouir complètement dans la version intégrale du jeu. Vous pouvez <a href="#" class="content-link">consulter dès à présent les règles de notre jeu</a>  pour vous en imprégner.</p>
 				</div>
