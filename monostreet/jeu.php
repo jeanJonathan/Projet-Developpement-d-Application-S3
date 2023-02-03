@@ -11,8 +11,16 @@
 include("rechercheDeRue/main.php");
 
 session_start();
+$connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
 
-$_GET['code'];
+
+$leCode = $_GET['code'];
+$result = mysqli_query($connection, "SELECT * FROM Partie WHERE codePartie='$leCode'");
+
+/* Get the number of rows in the result set */
+$row_cnt = mysqli_num_rows($result);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +37,14 @@ $_GET['code'];
     </style>
     <body>
         <?php
-        trouverParcours($_SESSION['rueDeDepart'],false);
+        if ($row_cnt == 1) {
+            trouverParcours($_SESSION['rueDeDepart'],false);
+        }
+        else {
+            echo "partie non trouvé";
+            echo "<a href='playGame.php?'><button>Chercher une autre partie</button></a>";
+        }
+        
 
         ?>
     </body>

@@ -19,20 +19,11 @@ for ($i=0; $i < 4; $i++) {
     $code = $code.chr($numAscii);
 }
 
+$sql = "INSERT INTO Partie VALUES ('3', '4', '400', 'bonjour', '4', '$code')";
 
-$query = 'SELECT * FROM CD';
-                    $result = $connection->query($query);
-                    foreach ($result as $row) {
-                        echo "<section id='$row[id]'>";
-                        echo "<a href='cdAffiche.php?id=$row[id]'><button type='submit'><img src=".$row['vignette']."></button></a>"."<br/>";
-                        echo "$row[titre]"."<br/>";
-                        echo "$row[auteur]";
-                        echo "</section>";
-                    }
+mysqli_query($connection, $sql);
 
-$sql = "INSERT INTO Partie VALUES ('1', '4', '400', 'bonjour', '4', '$code')";
-
-//header("Location: jeu.php?code=$code");
+header("Location: jeu.php?code=$code");
 
 
 ?>

@@ -170,8 +170,10 @@ foreach ($lesRues as $nomDeRues) {
                 Code de la partie : 
                 <form method="post">
                     <div class="form-group">
-                    <input type="password" class="form-control" name="mdp" id="password" placeholder="Code de la partie">
+                    <input type="text" class="form-control" name="codePartie" id="codePartie" placeholder="Code de la partie">
                     </div>
+                    </br>
+                    <button type="submit" name="rejoindrePriv">Rejoindre</button>
                 </form>
             </div>
         </div>
@@ -226,6 +228,11 @@ foreach ($lesRues as $nomDeRues) {
     </body>
 
     <?php
+        if(isset($_POST['codePartie'])){
+            echo "<script type='text/javascript'>document.location.replace('jeu.php?code=$_POST[codePartie]');</script>";
+        }
+
+
         if(isset($_POST['laRuePriv'])){
 
         $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
