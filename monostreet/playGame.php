@@ -127,6 +127,17 @@ input {
 
 
 </style>
+
+<?php
+include("rechercheDeRue/main.php");
+$lesRues = listeDeRues1("rechercheDeRue/Oloron80.csv");
+$listeParNom = [];
+foreach ($lesRues as $nomDeRues) {
+    $listeParNom[] = $nomDeRues[1];
+    }
+?>
+
+
 <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -166,6 +177,7 @@ input {
         </div>
         
         <div id="CreateGame">
+            
             <div id="CreatePublicGame">
                 <form method="POST" action="" text-align="center">
                     Nombre de joueur
@@ -188,11 +200,11 @@ input {
             <div id="CreatePrivateGame">
                 <form method="POST" action="" text-align="center">
                     Nombre de joueur
-                        <input type="number" id="leInput" name="nbJoueur" class="input" min="2" max="4">
+                        <input type="number" id="leInput" name="nbJoueurPriv" class="input" min="2" max="4">
                     
                     </br>
                     Choix de la rue de départ
-                    <select name="laRue" id="rue_select">
+                    <select name="laRuePriv" id="rue_select">
                     <option value="">Choisissez une rue</option>
                     <?php
                         foreach ($listeParNom as $nomDeRue) {
@@ -212,6 +224,16 @@ input {
         
 
     </body>
+
+    <?php
+        if(isset($_POST['laRuePriv'])){
+
+        $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
+        if (isset($_POST['nbJoueurPriv'])) {
+            echo "<script type='text/javascript'>document.location.replace('createGame.php');</script>";
+        }
+        }
+    ?>
 
 </main>
 </html>
