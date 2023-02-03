@@ -56,7 +56,7 @@ div{
 
 #JoinPublicGame{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
 }
 
@@ -183,11 +183,11 @@ foreach ($lesRues as $nomDeRues) {
             <div id="CreatePublicGame">
                 <form method="POST" action="" text-align="center">
                     Nombre de joueur
-                        <input type="number" id="leInput" name="nbJoueur" class="input" min="2" max="4">
+                        <input type="number" id="leInput" name="nbJoueurPubl" class="input" min="2" max="4">
                     
                     </br>
                     Choix de la rue de départ
-                    <select name="laRue" id="rue_select">
+                    <select name="laRuePubl" id="rue_select">
                     <option value="">Choisissez une rue</option>
                     <?php
                         foreach ($listeParNom as $nomDeRue) {
@@ -221,9 +221,18 @@ foreach ($lesRues as $nomDeRues) {
         </div>
 
         <div id="JoinPublicGame">
-            <p>JoinPublicGame</p>
-        </div>
-        
+            <?php
+            $connection = mysqli_connect("lakartxela","garricastres_bd","garricastres_bd","garricastres_bd");
+            $query = 'SELECT * FROM Partie';
+            $result = $connection->query($query);
+            foreach ($result as $row) {
+                echo "<section id='$row[idPartie]'>";
+                echo "$row[idPartie]"."<br/>";
+                echo "$row[codePartie]";
+                echo "</section>";
+                
+            }
+            ?>
 
     </body>
 
@@ -234,11 +243,17 @@ foreach ($lesRues as $nomDeRues) {
 
 
         if(isset($_POST['laRuePriv'])){
-
-        $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
-        if (isset($_POST['nbJoueurPriv'])) {
-            echo "<script type='text/javascript'>document.location.replace('createGame.php');</script>";
+            $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
+            if (isset($_POST['nbJoueurPriv'])) {
+                echo "<script type='text/javascript'>document.location.replace('createGame.php');</script>";
+            }
         }
+
+        if(isset($_POST['laRuePubl'])){
+            $_SESSION['rueDeDepart'] = $_POST['laRuePriv'];
+            if (isset($_POST['nbJoueurPubl'])) {
+                echo "<script type='text/javascript'>document.location.replace('createGame.php');</script>";
+            }
         }
     ?>
 
