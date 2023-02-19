@@ -1,3 +1,2 @@
-# Projet-Developpement-d-Application-S3
-Ce projet traite d’une Application à développer qui permettra à notre équipe de mobiliser 4 Compétences en développement, système réseau, gestion de données et gestion de projet
-
+# S3-Application-Development-Project
+Ce projet porte sur une application Web nommée Monostreet qui est un jeu de société en ligne dans lequel les joueurs peuvent s'approprier de vraies rues(On se réfère pour l'Instant aux rue d'Oloron dans le 64). A travers cette application, nous devrions développer et mobiliser nos compétences en développement, système réseau, gestion de données et gestion de projet
